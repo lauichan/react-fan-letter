@@ -1,13 +1,14 @@
 import { MemberCardSection } from "./Styles";
+import { aespa } from "static/data";
 
-function MemberCard({ members, selectMember }) {
+function MemberCard({ selectMember }) {
   const handleOnClick = (name) => {
     selectMember(name);
   };
 
   return (
     <MemberCardSection>
-      {members.map(({ id, name }) => {
+      {aespa.map(({ id, name }) => {
         return (
           <button key={id} onClick={() => handleOnClick(name)}>
             {name}

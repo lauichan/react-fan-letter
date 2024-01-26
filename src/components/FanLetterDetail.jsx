@@ -1,14 +1,25 @@
+import FanLetterForm from "./FanLetterForm";
 import { FanLetterDetailSection } from "./Styles";
-import { useParams } from "react-router-dom";
-import { fanLetters } from "static/data";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
-function FanLetterDetail() {
+function FanLetterDetail({ comments, updateFanLetter, deleteFanLetter }) {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const [comments, setComments] = useState(fanLetters);
+  const [edit, setEdit] = useState(false);
+
   const [article] = comments.filter((letter) => letter.id === id);
-  console.log(id);
-  console.log(comments);
+
+  const handleUpdateBtn = () => {
+    setEdit(true);
+  };
+
+  const handleDeleteBtn = (id) => {
+    deleteFanLetter(id);
+    navigate("/");
+  };
+
+  if (edit === true) return <FanLetterForm />;
 
   return (
     <FanLetterDetailSection>
@@ -16,8 +27,8 @@ function FanLetterDetail() {
         <img src={article.avatar} alt={article.nickname} />
         <span>{article.nickname}</span>
         <p>{article.content}</p>
-        <button>수정</button>
-        <button>삭제</button>
+        <button onClick={handleUpdateBtn}>수정</button>
+        <button onClick={() => handleDeleteBtn(article.id)}>삭제</button>
       </article>
     </FanLetterDetailSection>
   );

@@ -1,6 +1,6 @@
 import { FanLetterFormSection } from "./Styles";
 
-function FanLetterForm({ members, addFanLetter }) {
+function FanLetterForm({ members, addFanLetter, updateFanLetter }) {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const newComment = {

@@ -1,12 +1,11 @@
-import { useState } from "react";
 import FanLetterForm from "./FanLetterForm";
+import { useState } from "react";
 import FanLetterList from "./FanLetterList";
 import MemberCard from "./MemberCard";
-import { aespa, fanLetters } from "static/data";
+import { aespa } from "static/data";
 
-function FanLetter() {
+function FanLetter({ comments, addFanLetter }) {
   const [member, setMember] = useState("카리나");
-  const [comments, setComments] = useState(fanLetters);
 
   const selectedList = (member) => {
     return comments.filter((letter) => letter.writedTo === member);
@@ -14,11 +13,6 @@ function FanLetter() {
 
   const viewListByMember = (name) => {
     setMember(name);
-  };
-
-  const addFanLetter = (newComment) => {
-    setComments((prev) => [...prev, newComment]);
-    setMember(newComment.writedTo);
   };
 
   return (
