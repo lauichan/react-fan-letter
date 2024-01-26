@@ -50,19 +50,36 @@ export const FanLetterListSection = styled.section`
   }
 
   ul > li {
-    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    padding: 0.7rem;
     border: 1px solid #ddd;
     border-radius: 10px;
     cursor: pointer;
+    align-items: center;
+  }
+
+  img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 6px;
+  }
+
+  div {
+    width: calc(100% - 4rem);
+  }
+
+  span {
+    font-weight: bold;
   }
 
   p {
+    display: inline-block;
     margin-top: 0.5rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 

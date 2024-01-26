@@ -8,11 +8,14 @@ function FanLetterList({ list }) {
   return (
     <FanLetterListSection>
       <ul>
-        {list.map(({ id, name, content }) => {
+        {list.map(({ id, avatar, nickname, content }) => {
           return (
             <li key={id} onClick={() => handleOnClick(id)}>
-              <span>{name}</span>
-              <p>{content}</p>
+              <img src={avatar} alt={nickname}></img>
+              <div>
+                <span>{nickname}</span>
+                <p>{content}</p>
+              </div>
             </li>
           );
         })}
