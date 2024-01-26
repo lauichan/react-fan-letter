@@ -1,12 +1,7 @@
 import FanLetter from "components/FanLetter";
 
 function Home() {
-  return (
-    <>
-      <div>Home</div>
-      <FanLetter />
-    </>
-  );
+  return <FanLetter />;
 }
 
 export default Home;

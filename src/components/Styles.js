@@ -1,34 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-
-  header {
-    display: flex;
-    align-items: center;
-    height: 50px;
-  }
-
-  header > h1 {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-
-  header > h1 > a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-  }
-`;
-
 export const FanLetterFormSection = styled.section`
   margin: 2rem 0;
 
@@ -52,6 +23,7 @@ export const FanLetterFormSection = styled.section`
   textarea {
     min-height: 150px;
     border-top: 1px dashed #ddd;
+    resize: none;
   }
 
   div {
@@ -99,4 +71,48 @@ export const FanLetterDetailSection = styled.section`
   border-radius: 10px;
   padding: 1rem;
   margin: 2rem 0;
+`;
+
+export const MemberCardSection = styled.section`
+  margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+
+  button {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    height: 150px;
+    background: none;
+    border-radius: 10px;
+  }
+`;
+
+export const Container = styled.div`
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+
+  header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+
+  header > h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  header > h1 > a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+  }
 `;

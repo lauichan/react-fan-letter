@@ -1,5 +1,6 @@
 import FanLetterForm from "./FanLetterForm";
 import FanLetterList from "./FanLetterList";
+import MemberCard from "./MemberCard";
 
 export const aespa = [
   { id: "karina", name: "카리나" },
@@ -9,14 +10,15 @@ export const aespa = [
 ];
 
 export const fanLetters = [
-  { id: "123", name: "닉네임", content: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요" },
-  { id: "456", name: "닉네임", content: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요" },
-  { id: "789", name: "닉네임", content: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요" },
+  { id: "123", sendto: "karina", name: "닉네임", content: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요" },
+  { id: "456", sendto: "karina", name: "닉네임", content: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요" },
+  { id: "789", sendto: "winter", name: "닉네임", content: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요" },
 ];
 
 function FanLetter() {
   return (
     <>
+      <MemberCard members={aespa} />
       <FanLetterForm members={aespa} />
       <FanLetterList list={fanLetters} />
     </>

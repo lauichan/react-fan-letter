@@ -53,6 +53,10 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box
   }
+
+  button, select {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;
