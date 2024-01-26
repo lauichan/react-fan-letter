@@ -2,7 +2,7 @@ import { useState } from "react";
 import FanLetterForm from "./FanLetterForm";
 import FanLetterList from "./FanLetterList";
 import MemberCard from "./MemberCard";
-import { aespa, fanLetters } from "./data";
+import { aespa, fanLetters } from "static/data";
 
 function FanLetter() {
   const [member, setMember] = useState("카리나");

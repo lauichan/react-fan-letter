@@ -1,12 +1,14 @@
 import { FanLetterDetailSection } from "./Styles";
 import { useParams } from "react-router-dom";
-import { fanLetters } from "./data";
+import { fanLetters } from "static/data";
 import { useState } from "react";
 
 function FanLetterDetail() {
   const { id } = useParams();
   const [comments, setComments] = useState(fanLetters);
   const [article] = comments.filter((letter) => letter.id === id);
+  console.log(id);
+  console.log(comments);
 
   return (
     <FanLetterDetailSection>
