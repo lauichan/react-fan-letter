@@ -1,12 +1,10 @@
-import FanLetterForm from "components/FanLetterForm";
-import FanLetterList from "components/FanLetterList";
+import FanLetter from "components/FanLetter";
 
 function Home() {
   return (
     <>
-      Home
-      <FanLetterForm />
-      <FanLetterList />
+      <div>Home</div>
+      <FanLetter />
     </>
   );
 }

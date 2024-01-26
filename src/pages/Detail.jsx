@@ -1,7 +1,10 @@
+import FanLetterDetail from "components/FanLetterDetail";
+
 function Detail() {
   return (
     <>
-      <div>Detail</div>
+      <div>팬레터 디테일 페이지입니다</div>
+      <FanLetterDetail />
     </>
   );
 }

@@ -1,0 +1,102 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+
+  header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+
+  header > h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  header > h1 > a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+  }
+`;
+
+export const FanLetterFormSection = styled.section`
+  margin: 2rem 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: auto;
+  }
+
+  input,
+  textarea {
+    border: none;
+    outline: none;
+    font-size: 100%;
+    font-family: sans-serif;
+    padding: 0.7rem;
+  }
+
+  textarea {
+    min-height: 150px;
+    border-top: 1px dashed #ddd;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  select,
+  button {
+    border: none;
+    background: #f1f1f1;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: 100%;
+  }
+`;
+
+export const FanLetterListSection = styled.section`
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul > li {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`;
+
+export const FanLetterDetailSection = styled.section`
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 2rem 0;
+`;
