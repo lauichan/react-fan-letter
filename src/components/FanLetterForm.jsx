@@ -1,11 +1,17 @@
 import { FanLetterFormSection } from "./Styles";
 
-function FanLetterForm({ members }) {
+function FanLetterForm({ members, addFanLetter }) {
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.name.value);
-    console.log(e.target.content.value);
-    console.log(e.target.sendto.value);
+    const newComment = {
+      id: crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
+      avatar: null,
+      nickname: e.target.name.value,
+      content: e.target.content.value,
+      writedTo: e.target.sendto.value,
+    };
+    addFanLetter(newComment);
   };
 
   return (
@@ -18,7 +24,7 @@ function FanLetterForm({ members }) {
             <option value="">받을 사람</option>
             {members.map(({ id, name }) => {
               return (
-                <option key={id} value={id}>
+                <option key={id} value={name}>
                   {name}
                 </option>
               );

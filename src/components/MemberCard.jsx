@@ -1,15 +1,15 @@
 import { MemberCardSection } from "./Styles";
 
-function MemberCard({ members }) {
-  const handleOnClick = (id) => {
-    alert(id);
+function MemberCard({ members, selectMember }) {
+  const handleOnClick = (name) => {
+    selectMember(name);
   };
 
   return (
     <MemberCardSection>
       {members.map(({ id, name }) => {
         return (
-          <button key={id} onClick={() => handleOnClick(id)}>
+          <button key={id} onClick={() => handleOnClick(name)}>
             {name}
           </button>
         );
