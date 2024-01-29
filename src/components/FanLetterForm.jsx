@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FanLetterFormSection } from "./Styles";
 import { aespa } from "static/data";
+import { v4 as uuidv4 } from "uuid";
 
 function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, changeEditMode }) {
   const navigate = useNavigate();
@@ -14,9 +15,11 @@ function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, c
     }
 
     const formData = {
-      id: article ? article.id : crypto.randomUUID(),
+      id: article ? article.id : uuidv4(),
       createdAt: article ? article.createdAt : new Date().toISOString(),
-      avatar: article ? article.avatar : null,
+      avatar: article
+        ? article.avatar
+        : "https://t1.kakaocdn.net/together_image/common/avatar/avatar.png",
       nickname: e.target.name.value,
       content: e.target.content.value,
       writedTo: e.target.sendto.value,
