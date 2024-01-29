@@ -6,7 +6,12 @@ import { fanLetters } from "static/data";
 import { useState } from "react";
 
 function Router() {
+  const [member, setMember] = useState("카리나");
   const [comments, setComments] = useState(fanLetters);
+
+  const selectMember = (name) => {
+    setMember(name);
+  };
 
   const addFanLetter = (newComment) => {
     setComments((prev) => [...prev, newComment]);
@@ -24,7 +29,17 @@ function Router() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home comments={comments} addFanLetter={addFanLetter} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                member={member}
+                comments={comments}
+                addFanLetter={addFanLetter}
+                selectMember={selectMember}
+              />
+            }
+          />
           <Route
             path="detail/:id"
             element={
@@ -32,6 +47,7 @@ function Router() {
                 comments={comments}
                 updateFanLetter={updateFanLetter}
                 deleteFanLetter={deleteFanLetter}
+                selectMember={selectMember}
               />
             }
           />

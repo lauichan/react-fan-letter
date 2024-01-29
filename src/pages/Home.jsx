@@ -1,7 +1,14 @@
 import FanLetter from "components/FanLetter";
 
-function Home({ comments, addFanLetter }) {
-  return <FanLetter comments={comments} addFanLetter={addFanLetter} />;
+function Home({ member, comments, addFanLetter, selectMember }) {
+  return (
+    <FanLetter
+      member={member}
+      comments={comments}
+      addFanLetter={addFanLetter}
+      selectMember={selectMember}
+    />
+  );
 }
 
 export default Home;
