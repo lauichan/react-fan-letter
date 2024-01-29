@@ -27,6 +27,7 @@ function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, c
 
     article ? updateFanLetter(formData) : addFanLetter(formData);
     selectMember(formData.writedTo);
+    e.target.reset();
     navigate("/");
   };
 
