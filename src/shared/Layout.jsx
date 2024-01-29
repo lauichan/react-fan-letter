@@ -12,7 +12,13 @@ function Header() {
 }
 
 function Footer() {
-  return <footer>푸터</footer>;
+  return (
+    <footer>
+      <a href="https://github.com/lauichan/react-fan-letter" target="_blank">
+        깃허브
+      </a>
+    </footer>
+  );
 }
 
 function Layout({ children }) {

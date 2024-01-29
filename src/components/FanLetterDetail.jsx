@@ -21,7 +21,7 @@ function FanLetterDetail({ comments, updateFanLetter, deleteFanLetter }) {
     }
   };
 
-  if (editMode === true)
+  if (editMode)
     return (
       <FanLetterForm
         article={article}
