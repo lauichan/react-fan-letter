@@ -54,8 +54,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box
   }
 
-  button, select {
+  select,
+  button {
     cursor: pointer;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 6px;
+    font-size: 100%;
   }
 `;
 

@@ -11,6 +11,10 @@ export const FanLetterFormSection = styled.section`
     overflow: auto;
   }
 
+  input {
+    height: 40px;
+  }
+
   input,
   textarea {
     border: none;
@@ -21,26 +25,29 @@ export const FanLetterFormSection = styled.section`
   }
 
   textarea {
-    min-height: 150px;
     border-top: 1px dashed #ddd;
-    resize: none;
+    resize: vertical;
+    line-height: 1.6;
+    min-height: 150px;
   }
 
   div {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    margin-left: 0.5rem;
+    margin-top: auto;
+    margin: 0.5rem;
+    gap: 0.5rem;
   }
 
-  select,
-  button {
-    border: none;
-    background: #f1f1f1;
-    border-radius: 6px;
+  button,
+  select {
     padding: 0.5rem;
-    margin: 0.5rem;
-    font-size: 100%;
+  }
+
+  select {
+    margin-left: 0.3rem;
+    margin-right: auto;
   }
 `;
 
@@ -88,8 +95,55 @@ export const FanLetterListSection = styled.section`
 export const FanLetterDetailSection = styled.section`
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 1rem;
   margin: 2rem 0;
+  overflow: hidden;
+
+  article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem;
+    height: 40px;
+  }
+
+  time {
+    font-size: 90%;
+  }
+
+  .content {
+    border-top: 1px dashed #ddd;
+    padding: 0.7rem;
+    line-height: 1.6;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .bottom span {
+    margin-right: auto;
+  }
+
+  button {
+    padding: 0.5rem;
+  }
 `;
 
 export const MemberCardSection = styled.section`

@@ -6,10 +6,11 @@ import MemberCard from "./MemberCard";
 function FanLetter({ comments, addFanLetter }) {
   const [member, setMember] = useState("카리나");
 
-  const commentList = comments.filter((letter) => letter.writedTo === member);
   const selectMember = (name) => {
     setMember(name);
   };
+
+  const commentList = comments.filter((letter) => letter.writedTo === member);
 
   return (
     <>

@@ -2,21 +2,29 @@ import { useNavigate } from "react-router-dom";
 import { FanLetterFormSection } from "./Styles";
 import { aespa } from "static/data";
 
-function FanLetterForm({ addFanLetter, article, updateFanLetter, selectMember }) {
+function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, changeEditMode }) {
   const navigate = useNavigate();
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
+
+    if (article && e.target.content.value === article.content) {
+      alert("수정된 내용이 없습니다.");
+      return;
+    }
+
     const formData = {
       id: article ? article.id : crypto.randomUUID(),
       createdAt: article ? article.createdAt : new Date().toISOString(),
-      avatar: null,
+      avatar: article ? article.avatar : null,
       nickname: e.target.name.value,
       content: e.target.content.value,
       writedTo: e.target.sendto.value,
     };
+
     article ? updateFanLetter(formData) : addFanLetter(formData);
-    navigate("/");
     selectMember && selectMember(formData.writedTo);
+    navigate("/");
   };
 
   return (
@@ -36,22 +44,25 @@ function FanLetterForm({ addFanLetter, article, updateFanLetter, selectMember })
           required
         ></textarea>
         <div>
-          <div>
-            To.
-            <select name="sendto" title="sendto" required>
-              <option defaultValue={article && article.writedTo}>
-                {article && article.writedTo}
-              </option>
-              {aespa.map(({ id, name }) => {
-                return (
-                  <option key={id} value={name}>
-                    {name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <button type="submit">팬레터 등록</button>
+          To.
+          <select name="sendto" title="sendto" required>
+            <option defaultValue={article && article.writedTo}>
+              {article && article.writedTo}
+            </option>
+            {aespa.map(({ id, name }) => {
+              return (
+                <option key={id} value={name}>
+                  {name}
+                </option>
+              );
+            })}
+          </select>
+          {article && (
+            <button type="button" onClick={() => changeEditMode(false)}>
+              취소
+            </button>
+          )}
+          <button type="submit">팬레터 {article ? "수정" : "등록"}</button>
         </div>
       </form>
     </FanLetterFormSection>

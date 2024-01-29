@@ -10,26 +10,46 @@ function FanLetterDetail({ comments, updateFanLetter, deleteFanLetter }) {
 
   const [article] = comments.filter((letter) => letter.id === id);
 
-  const handleUpdateBtn = () => {
-    setEditMode(true);
+  const changeEditMode = (bool) => {
+    setEditMode(bool);
   };
 
   const handleDeleteBtn = (id) => {
-    if (window.confirm("삭제 확인")) deleteFanLetter(id);
-    navigate("/");
+    if (window.confirm("삭제 확인")) {
+      deleteFanLetter(id);
+      navigate("/");
+    }
   };
 
   if (editMode === true)
-    return <FanLetterForm article={article} updateFanLetter={updateFanLetter} />;
+    return (
+      <FanLetterForm
+        article={article}
+        updateFanLetter={updateFanLetter}
+        changeEditMode={changeEditMode}
+      />
+    );
 
   return (
     <FanLetterDetailSection>
       <article>
-        <img src={article.avatar} alt={article.nickname} />
-        <span>{article.nickname}</span>
-        <p>{article.content}</p>
-        <button onClick={handleUpdateBtn}>수정</button>
-        <button onClick={() => handleDeleteBtn(article.id)}>삭제</button>
+        <div className="meta">
+          <span>{article.nickname}</span>
+          <time>
+            {new Date(article.createdAt).toLocaleDateString("ko-kr", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+        </div>
+        <p className="content">{article.content}</p>
+        <div className="bottom">
+          <span>To. {article.writedTo}</span>
+          <button onClick={() => changeEditMode(true)}>수정</button>
+          <button onClick={() => handleDeleteBtn(article.id)}>삭제</button>
+        </div>
       </article>
     </FanLetterDetailSection>
   );

@@ -2,7 +2,6 @@ import { MemberCardSection } from "./Styles";
 import { aespa } from "static/data";
 
 function MemberCard({ member, selectMember }) {
-  console.log(member);
   const handleOnClick = (name) => {
     selectMember(name);
   };
@@ -11,7 +10,12 @@ function MemberCard({ member, selectMember }) {
     <MemberCardSection>
       {aespa.map(({ id, name }) => {
         return (
-          <button key={id} onClick={() => handleOnClick(name)} disabled={member === name}>
+          <button
+            type="button"
+            key={id}
+            onClick={() => handleOnClick(name)}
+            disabled={member === name}
+          >
             {name}
           </button>
         );
