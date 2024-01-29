@@ -29,6 +29,8 @@ export const FanLetterFormSection = styled.section`
   div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
   }
 
   select,

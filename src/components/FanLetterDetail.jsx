@@ -1,25 +1,26 @@
-import FanLetterForm from "./FanLetterForm";
 import { FanLetterDetailSection } from "./Styles";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import FanLetterForm from "./FanLetterForm";
 
 function FanLetterDetail({ comments, updateFanLetter, deleteFanLetter }) {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [edit, setEdit] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   const [article] = comments.filter((letter) => letter.id === id);
 
   const handleUpdateBtn = () => {
-    setEdit(true);
+    setEditMode(true);
   };
 
   const handleDeleteBtn = (id) => {
-    deleteFanLetter(id);
+    if (window.confirm("삭제 확인")) deleteFanLetter(id);
     navigate("/");
   };
 
-  if (edit === true) return <FanLetterForm />;
+  if (editMode === true)
+    return <FanLetterForm article={article} updateFanLetter={updateFanLetter} />;
 
   return (
     <FanLetterDetailSection>

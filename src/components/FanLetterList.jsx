@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { FanLetterListSection } from "./Styles";
 
 function FanLetterList({ list }) {
+  console.log(list);
   const navigate = useNavigate();
   const handleOnClick = (id) => navigate(`/detail/${id}`);
 
