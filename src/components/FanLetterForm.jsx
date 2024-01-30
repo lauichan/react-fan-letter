@@ -13,9 +13,9 @@ function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, c
 
     if (
       article &&
-      content.name === article.nickname &&
-      content.sendto === article.writedTo &&
-      content.value === article.content
+      name.value === article.nickname &&
+      content.value === article.content &&
+      sendto.value === article.writedTo
     ) {
       alert("수정된 내용이 없습니다.");
       return;
