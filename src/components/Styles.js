@@ -28,7 +28,7 @@ export const FanLetterFormSection = styled.section`
     border-top: 1px dashed #ddd;
     resize: vertical;
     line-height: 1.6;
-    min-height: 150px;
+    min-height: 180px;
   }
 
   div {

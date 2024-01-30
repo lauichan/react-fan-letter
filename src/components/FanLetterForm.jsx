@@ -39,12 +39,14 @@ function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, c
           name="name"
           placeholder="닉네임"
           defaultValue={article && article.nickname}
+          maxLength={30}
           required
         ></input>
         <textarea
           name="content"
           placeholder="내용"
           defaultValue={article && article.content}
+          maxLength={300}
           required
         ></textarea>
         <div>
