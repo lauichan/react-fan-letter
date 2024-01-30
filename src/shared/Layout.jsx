@@ -1,4 +1,4 @@
-import { ContainerStyle, HeaderStyle, MainStyle } from "components/Styles";
+import { ContainerStyle, HeaderStyle, MainStyle, FooterStyle } from "components/Styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -14,11 +14,11 @@ function Header() {
 
 function Footer() {
   return (
-    <footer>
+    <FooterStyle>
       <a href="https://github.com/lauichan/react-fan-letter" target="_blank" rel="noreferrer">
         깃허브
       </a>
-    </footer>
+    </FooterStyle>
   );
 }
 

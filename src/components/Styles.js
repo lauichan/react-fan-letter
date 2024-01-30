@@ -14,6 +14,14 @@ export const HeaderStyle = styled.header`
   }
 `;
 
+export const FooterStyle = styled.footer`
+  font-size: 90%;
+  text-align: center;
+  & > a {
+    text-decoration: underline;
+  }
+`;
+
 export const MainStyle = styled.main`
   display: flex;
   flex-direction: column;
