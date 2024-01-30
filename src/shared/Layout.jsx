@@ -1,14 +1,14 @@
-import { Container } from "components/Styles";
+import { ContainerStyle, HeaderStyle, MainStyle } from "components/Styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header>
+    <HeaderStyle>
       <h1>
         <Link to="/">에스파 팬레터 콜렉션</Link>
       </h1>
-    </header>
+    </HeaderStyle>
   );
 }
 
@@ -24,11 +24,11 @@ function Footer() {
 
 function Layout({ children }) {
   return (
-    <Container>
+    <ContainerStyle>
       <Header />
-      <main>{children}</main>
+      <MainStyle>{children}</MainStyle>
       <Footer />
-    </Container>
+    </ContainerStyle>
   );
 }
 

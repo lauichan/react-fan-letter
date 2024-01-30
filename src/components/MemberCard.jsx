@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { MemberCardSection } from "./Styles";
 import { aespa } from "static/data";
 import { FanLetterContext } from "context/FanLetterContext";
+import { MemberButtonStyle, MemberCardStyle } from "./Styles";
 
 function MemberCard() {
   const { member, selectMember } = useContext(FanLetterContext);
@@ -11,20 +11,20 @@ function MemberCard() {
   };
 
   return (
-    <MemberCardSection>
+    <MemberCardStyle>
       {aespa.map(({ id, name }) => {
         return (
-          <button
+          <MemberButtonStyle
             type="button"
             key={id}
             onClick={() => handleOnClick(name)}
-            disabled={member === name}
+            backColor={member === name ? "white" : "#f9f9f9"}
           >
             {name}
-          </button>
+          </MemberButtonStyle>
         );
       })}
-    </MemberCardSection>
+    </MemberCardStyle>
   );
 }
 

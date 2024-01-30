@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { FanLetterFormSection } from "./Styles";
 import { aespa } from "static/data";
 import { v4 as uuidv4 } from "uuid";
 import React, { useCallback, useContext } from "react";
 import { FanLetterContext } from "context/FanLetterContext";
+import {
+  ButtonStyle,
+  FormBottomStyle,
+  FormInputStyle,
+  FormSelectStyle,
+  FormStyle,
+  FormTextAreaStyle,
+} from "./Styles";
 
 function FanLetterForm({ article, changeEditMode }) {
   const { addFanLetter, updateFanLetter, selectMember } = useContext(FanLetterContext);
@@ -45,27 +52,28 @@ function FanLetterForm({ article, changeEditMode }) {
   );
 
   return (
-    <FanLetterFormSection>
-      <form onSubmit={handleOnSubmit}>
-        <input
+    <section>
+      <FormStyle backColor={article ? "ghostwhite" : "white"} onSubmit={handleOnSubmit}>
+        <FormInputStyle
           type="text"
           name="name"
           placeholder="닉네임"
           defaultValue={article && article.nickname}
           maxLength={30}
           autoComplete="true"
+          autoFocus
           required
-        ></input>
-        <textarea
+        ></FormInputStyle>
+        <FormTextAreaStyle
           name="content"
           placeholder="내용"
           defaultValue={article && article.content}
           maxLength={300}
           required
-        ></textarea>
-        <div>
+        ></FormTextAreaStyle>
+        <FormBottomStyle>
           To.
-          <select name="sendto" title="sendto" required>
+          <FormSelectStyle name="sendto" title="sendto" required>
             <option defaultValue={article && article.writedTo}>
               {article && article.writedTo}
             </option>
@@ -76,16 +84,16 @@ function FanLetterForm({ article, changeEditMode }) {
                 </option>
               );
             })}
-          </select>
+          </FormSelectStyle>
           {article && (
-            <button type="button" onClick={() => changeEditMode(false)}>
+            <ButtonStyle type="button" onClick={() => changeEditMode(false)}>
               취소
-            </button>
+            </ButtonStyle>
           )}
-          <button type="submit">팬레터 {article ? "수정" : "등록"}</button>
-        </div>
-      </form>
-    </FanLetterFormSection>
+          <ButtonStyle type="submit">팬레터 {article ? "수정" : "등록"}</ButtonStyle>
+        </FormBottomStyle>
+      </FormStyle>
+    </section>
   );
 }
 

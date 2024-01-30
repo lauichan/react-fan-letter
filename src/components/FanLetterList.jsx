@@ -1,6 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { FanLetterListSection } from "./Styles";
 import React from "react";
+import {
+  ListContentStyle,
+  ListImgStyle,
+  ListNameStyle,
+  ListUlStyle,
+  ListWrapperStyle,
+  ListliStyle,
+} from "./Styles";
 
 function FanLetterList({ list }) {
   const navigate = useNavigate();
@@ -10,25 +17,25 @@ function FanLetterList({ list }) {
   };
 
   return (
-    <FanLetterListSection>
+    <section>
       {list.length === 0 ? (
         <p>팬 레터가 없습니다.</p>
       ) : (
-        <ul>
+        <ListUlStyle>
           {list.map(({ id, avatar, nickname, content }) => {
             return (
-              <li key={id} onClick={() => handleOnClick(id)}>
-                <img src={avatar} alt={nickname}></img>
-                <div>
-                  <span>{nickname}</span>
-                  <p>{content}</p>
-                </div>
-              </li>
+              <ListliStyle key={id} onClick={() => handleOnClick(id)}>
+                <ListImgStyle src={avatar} alt={nickname}></ListImgStyle>
+                <ListWrapperStyle>
+                  <ListNameStyle>{nickname}</ListNameStyle>
+                  <ListContentStyle>{content}</ListContentStyle>
+                </ListWrapperStyle>
+              </ListliStyle>
             );
           })}
-        </ul>
+        </ListUlStyle>
       )}
-    </FanLetterListSection>
+    </section>
   );
 }
 

@@ -1,8 +1,14 @@
-import { FanLetterDetailSection } from "./Styles";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useState } from "react";
 import FanLetterForm from "./FanLetterForm";
 import { FanLetterContext } from "context/FanLetterContext";
+import {
+  ArticleBottomStyle,
+  ArticleContentStyle,
+  ArticleHeaderStyle,
+  ArticleStyle,
+  ButtonStyle,
+} from "./Styles";
 
 function FanLetterDetail() {
   const { comments, deleteFanLetter } = useContext(FanLetterContext);
@@ -26,9 +32,9 @@ function FanLetterDetail() {
   if (editMode) return <FanLetterForm article={article} changeEditMode={changeEditMode} />;
 
   return (
-    <FanLetterDetailSection>
-      <article>
-        <div className="meta">
+    <section>
+      <ArticleStyle>
+        <ArticleHeaderStyle>
           <span>{article.nickname}</span>
           <time>
             {new Date(article.createdAt).toLocaleDateString("ko-kr", {
@@ -38,15 +44,15 @@ function FanLetterDetail() {
               day: "numeric",
             })}
           </time>
-        </div>
-        <p className="content">{article.content}</p>
-        <div className="bottom">
+        </ArticleHeaderStyle>
+        <ArticleContentStyle>{article.content}</ArticleContentStyle>
+        <ArticleBottomStyle>
           <span>To. {article.writedTo}</span>
-          <button onClick={() => changeEditMode(true)}>수정</button>
-          <button onClick={() => handleDeleteBtn(article.id)}>삭제</button>
-        </div>
-      </article>
-    </FanLetterDetailSection>
+          <ButtonStyle onClick={() => changeEditMode(true)}>수정</ButtonStyle>
+          <ButtonStyle onClick={() => handleDeleteBtn(article.id)}>삭제</ButtonStyle>
+        </ArticleBottomStyle>
+      </ArticleStyle>
+    </section>
   );
 }
 
