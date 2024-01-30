@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { MemberCardSection } from "./Styles";
 import { aespa } from "static/data";
 import { FanLetterContext } from "context/FanLetterContext";
 
 function MemberCard() {
   const { member, selectMember } = useContext(FanLetterContext);
+
   const handleOnClick = (name) => {
     selectMember(name);
   };
@@ -27,4 +28,4 @@ function MemberCard() {
   );
 }
 
-export default MemberCard;
+export default React.memo(MemberCard);

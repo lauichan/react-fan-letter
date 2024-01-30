@@ -1,4 +1,5 @@
 import { Container } from "components/Styles";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -14,7 +15,7 @@ function Header() {
 function Footer() {
   return (
     <footer>
-      <a href="https://github.com/lauichan/react-fan-letter" target="_blank">
+      <a href="https://github.com/lauichan/react-fan-letter" target="_blank" rel="noreferrer">
         깃허브
       </a>
     </footer>
@@ -31,4 +32,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default React.memo(Layout);

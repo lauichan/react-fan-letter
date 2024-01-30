@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { FanLetterListSection } from "./Styles";
+import React from "react";
 
 function FanLetterList({ list }) {
-  console.log("FanLetterList");
   const navigate = useNavigate();
 
   const handleOnClick = (id) => {
@@ -32,4 +32,4 @@ function FanLetterList({ list }) {
   );
 }
 
-export default FanLetterList;
+export default React.memo(FanLetterList);
