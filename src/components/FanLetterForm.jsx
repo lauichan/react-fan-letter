@@ -50,7 +50,7 @@ function FanLetterForm({ article, changeEditMode }) {
 
   return (
     <section>
-      <FormStyle backColor={article ? "ghostwhite" : "white"} onSubmit={handleOnSubmit}>
+      <FormStyle $backColor={article ? "ghostwhite" : "white"} onSubmit={handleOnSubmit}>
         <FormInputStyle
           type="text"
           name="name"

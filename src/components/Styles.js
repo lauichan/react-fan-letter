@@ -39,7 +39,7 @@ export const MemberButtonStyle = styled.button`
   height: 100px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  background-color: ${({ backColor }) => backColor};
+  background-color: ${({ $backColor }) => $backColor};
 `;
 
 export const FormStyle = styled.form`
@@ -48,7 +48,7 @@ export const FormStyle = styled.form`
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  background-color: ${({ backColor }) => backColor};
+  background-color: ${({ $backColor }) => $backColor};
 `;
 
 export const FormInputStyle = styled.input`

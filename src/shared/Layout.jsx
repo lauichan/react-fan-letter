@@ -2,7 +2,7 @@ import { ContainerStyle, HeaderStyle, MainStyle, FooterStyle } from "components/
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Header() {
+const Header = React.memo(() => {
   return (
     <HeaderStyle>
       <h1>
@@ -10,9 +10,9 @@ function Header() {
       </h1>
     </HeaderStyle>
   );
-}
+});
 
-function Footer() {
+const Footer = React.memo(() => {
   return (
     <FooterStyle>
       <a href="https://github.com/lauichan/react-fan-letter" target="_blank" rel="noreferrer">
@@ -20,7 +20,7 @@ function Footer() {
       </a>
     </FooterStyle>
   );
-}
+});
 
 function Layout({ children }) {
   return (

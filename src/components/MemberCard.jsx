@@ -18,7 +18,7 @@ function MemberCard() {
             type="button"
             key={id}
             onClick={() => handleOnClick(name)}
-            backColor={member === name ? "white" : "#f9f9f9"}
+            $backColor={member === name ? "white" : "#f9f9f9"}
           >
             {name}
           </MemberButtonStyle>
