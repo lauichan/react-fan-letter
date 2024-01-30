@@ -1,13 +1,16 @@
-import FanLetter from "components/FanLetter";
+import FanLetterForm from "components/FanLetterForm";
+import FanLetterList from "components/FanLetterList";
+import MemberCard from "components/MemberCard";
 
 function Home({ member, comments, addFanLetter, selectMember }) {
+  const commentList = comments.filter((letter) => letter.writedTo === member);
+
   return (
-    <FanLetter
-      member={member}
-      comments={comments}
-      addFanLetter={addFanLetter}
-      selectMember={selectMember}
-    />
+    <>
+      <MemberCard member={member} selectMember={selectMember} />
+      <FanLetterForm addFanLetter={addFanLetter} selectMember={selectMember} />
+      <FanLetterList list={commentList} />
+    </>
   );
 }
 
