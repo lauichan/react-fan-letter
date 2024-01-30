@@ -9,7 +9,14 @@ function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, c
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    if (article && e.target.content.value === article.content) {
+    const { name, content, sendto } = e.target;
+
+    if (
+      article &&
+      content.name === article.nickname &&
+      content.sendto === article.writedTo &&
+      content.value === article.content
+    ) {
       alert("수정된 내용이 없습니다.");
       return;
     }
@@ -20,9 +27,9 @@ function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, c
       avatar: article
         ? article.avatar
         : "https://t1.kakaocdn.net/together_image/common/avatar/avatar.png",
-      nickname: e.target.name.value,
-      content: e.target.content.value,
-      writedTo: e.target.sendto.value,
+      nickname: name.value,
+      content: content.value,
+      writedTo: sendto.value,
     };
 
     article ? updateFanLetter(formData) : addFanLetter(formData);
