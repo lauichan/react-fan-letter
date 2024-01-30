@@ -5,7 +5,7 @@ import FanLetterForm from "./FanLetterForm";
 import { FanLetterContext } from "context/FanLetterContext";
 
 function FanLetterDetail() {
-  const { comments, updateFanLetter, deleteFanLetter, selectMember } = useContext(FanLetterContext);
+  const { comments, deleteFanLetter } = useContext(FanLetterContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const [editMode, setEditMode] = useState(false);
@@ -23,15 +23,7 @@ function FanLetterDetail() {
     }
   };
 
-  if (editMode)
-    return (
-      <FanLetterForm
-        article={article}
-        updateFanLetter={updateFanLetter}
-        changeEditMode={changeEditMode}
-        selectMember={selectMember}
-      />
-    );
+  if (editMode) return <FanLetterForm article={article} changeEditMode={changeEditMode} />;
 
   return (
     <FanLetterDetailSection>

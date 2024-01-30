@@ -4,6 +4,7 @@ import { aespa } from "static/data";
 import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
 import { FanLetterContext } from "context/FanLetterContext";
+import React from "react";
 
 function FanLetterForm({ article, changeEditMode }) {
   const { addFanLetter, updateFanLetter, selectMember } = useContext(FanLetterContext);
@@ -14,11 +15,14 @@ function FanLetterForm({ article, changeEditMode }) {
 
     const { name, content, sendto } = e.target;
 
+    console.log(name.value, article.nickname);
+    console.log(content.value, article.nickname);
+
     if (
       article &&
-      content.name === article.nickname &&
-      content.sendto === article.writedTo &&
-      content.value === article.content
+      name.value === article.nickname &&
+      content.value === article.content &&
+      sendto.value === article.writedTo
     ) {
       alert("수정된 내용이 없습니다.");
       return;
@@ -50,6 +54,7 @@ function FanLetterForm({ article, changeEditMode }) {
           placeholder="닉네임"
           defaultValue={article && article.nickname}
           maxLength={30}
+          autoComplete="true"
           required
         ></input>
         <textarea
@@ -85,4 +90,4 @@ function FanLetterForm({ article, changeEditMode }) {
   );
 }
 
-export default FanLetterForm;
+export default React.memo(FanLetterForm);
