@@ -4,6 +4,7 @@ import Home from "pages/Home";
 import Detail from "pages/Detail";
 import { fanLetters } from "static/data";
 import { useState } from "react";
+import { FanLetterContext } from "context/FanLetterContext";
 
 function Router() {
   const [member, setMember] = useState("카리나");
@@ -28,30 +29,21 @@ function Router() {
   return (
     <BrowserRouter>
       <Layout>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                member={member}
-                comments={comments}
-                addFanLetter={addFanLetter}
-                selectMember={selectMember}
-              />
-            }
-          />
-          <Route
-            path="detail/:id"
-            element={
-              <Detail
-                comments={comments}
-                updateFanLetter={updateFanLetter}
-                deleteFanLetter={deleteFanLetter}
-                selectMember={selectMember}
-              />
-            }
-          />
-        </Routes>
+        <FanLetterContext.Provider
+          value={{
+            member,
+            comments,
+            selectMember,
+            addFanLetter,
+            updateFanLetter,
+            deleteFanLetter,
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="detail/:id" element={<Detail />} />
+          </Routes>
+        </FanLetterContext.Provider>
       </Layout>
     </BrowserRouter>
   );

@@ -2,8 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { FanLetterFormSection } from "./Styles";
 import { aespa } from "static/data";
 import { v4 as uuidv4 } from "uuid";
+import { useContext } from "react";
+import { FanLetterContext } from "context/FanLetterContext";
 
-function FanLetterForm({ addFanLetter, updateFanLetter, selectMember, article, changeEditMode }) {
+function FanLetterForm({ article, changeEditMode }) {
+  const { addFanLetter, updateFanLetter, selectMember } = useContext(FanLetterContext);
   const navigate = useNavigate();
 
   const handleOnSubmit = (e) => {

@@ -1,9 +1,11 @@
 import { FanLetterDetailSection } from "./Styles";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import FanLetterForm from "./FanLetterForm";
+import { FanLetterContext } from "context/FanLetterContext";
 
-function FanLetterDetail({ comments, updateFanLetter, deleteFanLetter, selectMember }) {
+function FanLetterDetail() {
+  const { comments, updateFanLetter, deleteFanLetter, selectMember } = useContext(FanLetterContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const [editMode, setEditMode] = useState(false);

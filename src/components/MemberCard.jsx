@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { MemberCardSection } from "./Styles";
 import { aespa } from "static/data";
+import { FanLetterContext } from "context/FanLetterContext";
 
-function MemberCard({ member, selectMember }) {
+function MemberCard() {
+  const { member, selectMember } = useContext(FanLetterContext);
   const handleOnClick = (name) => {
     selectMember(name);
   };

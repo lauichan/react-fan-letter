@@ -1,14 +1,17 @@
+import { useContext } from "react";
 import FanLetterForm from "./FanLetterForm";
 import FanLetterList from "./FanLetterList";
 import MemberCard from "./MemberCard";
+import { FanLetterContext } from "context/FanLetterContext";
 
-function FanLetter({ member, comments, addFanLetter, selectMember }) {
+function FanLetter() {
+  const { comments, member } = useContext(FanLetterContext);
   const commentList = comments.filter((letter) => letter.writedTo === member);
 
   return (
     <>
-      <MemberCard member={member} selectMember={selectMember} />
-      <FanLetterForm addFanLetter={addFanLetter} selectMember={selectMember} />
+      <MemberCard />
+      <FanLetterForm />
       <FanLetterList list={commentList} />
     </>
   );
