@@ -9,7 +9,6 @@ function MemberCard() {
 
   const handleOnClick = (name) => {
     dispatch(selectMember(name));
-    console.log(name);
   };
 
   return (

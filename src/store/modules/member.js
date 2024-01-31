@@ -3,10 +3,7 @@ const SELECT_MEMBER = "member/SELECT_MEMBER";
 const initialState = "카리나";
 
 export const selectMember = (payload) => {
-  return {
-    type: SELECT_MEMBER,
-    payload,
-  };
+  return { type: SELECT_MEMBER, payload };
 };
 
 const member = (state = initialState, action) => {

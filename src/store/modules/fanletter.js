@@ -7,24 +7,15 @@ const UPDATE_FANLETTER = "fanletter/UPDATE_FANLETTER";
 const initialState = fanLetters;
 
 export const addFanLetter = (payload) => {
-  return {
-    type: ADD_FANLETTER,
-    payload,
-  };
+  return { type: ADD_FANLETTER, payload };
 };
 
 export const updateFanLetter = (payload) => {
-  return {
-    type: UPDATE_FANLETTER,
-    payload,
-  };
+  return { type: UPDATE_FANLETTER, payload };
 };
 
 export const deleteFanLetter = (payload) => {
-  return {
-    type: DELETE_FANLETTER,
-    payload,
-  };
+  return { type: DELETE_FANLETTER, payload };
 };
 
 const fanletter = (state = initialState, action) => {
