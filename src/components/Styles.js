@@ -98,6 +98,7 @@ export const ListliStyle = styled.li`
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 0.7rem;
+  cursor: pointer;
 `;
 
 export const ListAvatarStyle = styled.img`
