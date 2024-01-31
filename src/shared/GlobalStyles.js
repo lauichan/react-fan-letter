@@ -54,8 +54,21 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box
   }
 
-  button, select {
+  select,
+  input,
+  textarea,
+  button {
     cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 100%;
+    background: transparent;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `;
 

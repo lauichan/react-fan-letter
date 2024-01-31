@@ -1,28 +1,35 @@
-import { Container } from "components/Styles";
+import { ContainerStyle, HeaderStyle, MainStyle, FooterStyle } from "components/Styles";
+import React from "react";
 import { Link } from "react-router-dom";
 
-function Header() {
+const Header = React.memo(() => {
   return (
-    <header>
+    <HeaderStyle>
       <h1>
         <Link to="/">에스파 팬레터 콜렉션</Link>
       </h1>
-    </header>
+    </HeaderStyle>
   );
-}
+});
 
-function Footer() {
-  return <footer>푸터</footer>;
-}
+const Footer = React.memo(() => {
+  return (
+    <FooterStyle>
+      <a href="https://github.com/lauichan/react-fan-letter" target="_blank" rel="noreferrer">
+        깃허브
+      </a>
+    </FooterStyle>
+  );
+});
 
 function Layout({ children }) {
   return (
-    <Container>
+    <ContainerStyle>
       <Header />
-      <main>{children}</main>
+      <MainStyle>{children}</MainStyle>
       <Footer />
-    </Container>
+    </ContainerStyle>
   );
 }
 
-export default Layout;
+export default React.memo(Layout);
