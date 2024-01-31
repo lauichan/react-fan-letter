@@ -1,11 +1,11 @@
 import FanLetterForm from "components/FanLetterForm";
 import FanLetterList from "components/FanLetterList";
 import MemberCard from "components/MemberCard";
-import { FanLetterContext } from "context/FanLetterContext";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 function Home() {
-  const { comments, member } = useContext(FanLetterContext);
+  const comments = useSelector((state) => state.fanletter);
+  const member = useSelector((state) => state.member);
   const commentList = comments.filter((letter) => letter.writedTo === member);
 
   return (

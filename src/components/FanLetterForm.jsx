@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { aespa } from "static/data";
 import { v4 as uuidv4 } from "uuid";
-import React, { useContext } from "react";
-import { FanLetterContext } from "context/FanLetterContext";
+import React from "react";
 import {
   ButtonStyle,
   FormBottomStyle,
@@ -11,9 +10,12 @@ import {
   FormStyle,
   FormTextAreaStyle,
 } from "./Styles";
+import { useDispatch } from "react-redux";
+import { addFanLetter, updateFanLetter } from "store/modules/fanletter";
+import { selectMember } from "store/modules/member";
 
 function FanLetterForm({ article, changeEditMode }) {
-  const { addFanLetter, updateFanLetter, selectMember } = useContext(FanLetterContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleOnSubmit = (e) => {
@@ -41,9 +43,9 @@ function FanLetterForm({ article, changeEditMode }) {
       content: content.value,
       writedTo: sendto.value,
     };
-
-    article ? updateFanLetter(formData) : addFanLetter(formData);
-    selectMember(formData.writedTo);
+    console.log(formData);
+    article ? dispatch(updateFanLetter(formData)) : dispatch(addFanLetter(formData));
+    dispatch(selectMember(formData.writedTo));
     e.target.reset();
     navigate("/");
   };

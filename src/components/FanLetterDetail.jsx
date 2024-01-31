@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import FanLetterForm from "./FanLetterForm";
-import { FanLetterContext } from "context/FanLetterContext";
 import {
   ArticleBottomStyle,
   ArticleContentStyle,
@@ -9,9 +8,10 @@ import {
   ArticleStyle,
   ButtonStyle,
 } from "./Styles";
+import { useSelector } from "react-redux";
 
 function FanLetterDetail() {
-  const { comments, deleteFanLetter } = useContext(FanLetterContext);
+  const comments = useSelector((state) => state.fanletter);
   const navigate = useNavigate();
   const { id } = useParams();
   const [editMode, setEditMode] = useState(false);
@@ -24,7 +24,7 @@ function FanLetterDetail() {
 
   const handleDeleteBtn = (id) => {
     if (window.confirm("삭제 확인")) {
-      deleteFanLetter(id);
+      //deleteFanLetter(id);
       navigate("/");
     }
   };

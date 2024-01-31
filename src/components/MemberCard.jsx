@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { aespa } from "static/data";
-import { FanLetterContext } from "context/FanLetterContext";
 import { MemberButtonStyle, MemberCardStyle } from "./Styles";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMember } from "store/modules/member";
 
 function MemberCard() {
-  const { member, selectMember } = useContext(FanLetterContext);
+  const member = useSelector((state) => state.member);
+  const dispatch = useDispatch();
 
   const handleOnClick = (name) => {
-    selectMember(name);
+    dispatch(selectMember(name));
+    console.log(name);
   };
 
   return (
