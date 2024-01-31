@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
 import {
   ListContentStyle,
   ListImgStyle,
@@ -39,4 +38,4 @@ function FanLetterList({ list }) {
   );
 }
 
-export default React.memo(FanLetterList);
+export default FanLetterList;
