@@ -1,4 +1,3 @@
-import React from "react";
 import { aespa } from "static/data";
 import { MemberButtonStyle, MemberCardStyle } from "./Styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,4 +30,4 @@ function MemberCard() {
   );
 }
 
-export default React.memo(MemberCard);
+export default MemberCard;

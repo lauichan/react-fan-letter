@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { aespa } from "static/data";
 import { v4 as uuidv4 } from "uuid";
-import React from "react";
 import {
   ButtonStyle,
   FormBottomStyle,
@@ -10,11 +9,12 @@ import {
   FormStyle,
   FormTextAreaStyle,
 } from "./Styles";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFanLetter, updateFanLetter } from "store/modules/fanletter";
 import { selectMember } from "store/modules/member";
 
 function FanLetterForm({ article, changeEditMode }) {
+  const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -75,8 +75,8 @@ function FanLetterForm({ article, changeEditMode }) {
         <FormBottomStyle>
           To.
           <FormSelectStyle name="sendto" title="sendto" required>
-            <option defaultValue={article && article.writedTo}>
-              {article && article.writedTo}
+            <option defaultValue={article ? article.writedTo : member}>
+              {article ? article.writedTo : member}
             </option>
             {aespa.map(({ id, name }) => {
               return (
@@ -98,4 +98,4 @@ function FanLetterForm({ article, changeEditMode }) {
   );
 }
 
-export default React.memo(FanLetterForm);
+export default FanLetterForm;
