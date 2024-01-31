@@ -4,6 +4,7 @@ export const ContainerStyle = styled.div`
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 export const HeaderStyle = styled.header`
@@ -93,13 +94,13 @@ export const ListUlStyle = styled.ul`
 export const ListliStyle = styled.li`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.7rem;
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: 1rem;
+  padding: 0.7rem;
 `;
 
-export const ListImgStyle = styled.img`
+export const ListAvatarStyle = styled.img`
   width: 3rem;
   height: 3rem;
   border-radius: 6px;
@@ -129,9 +130,17 @@ export const ArticleStyle = styled.article`
 `;
 
 export const ArticleHeaderStyle = styled.header`
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0.7rem;
+  gap: 0.5rem;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
 
   span {
     font-weight: bold;
@@ -139,7 +148,14 @@ export const ArticleHeaderStyle = styled.header`
 
   time {
     font-size: 90%;
+    margin-left: auto;
   }
+`;
+
+export const AvatarStyle = styled.img`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
 `;
 
 export const ArticleContentStyle = styled.div`
@@ -153,7 +169,7 @@ export const ArticleBottomStyle = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.7rem;
+  margin: 0.5rem;
 
   span {
     margin-right: auto;

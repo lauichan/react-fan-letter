@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {
   ListContentStyle,
-  ListImgStyle,
+  ListAvatarStyle,
   ListNameStyle,
   ListUlStyle,
   ListWrapperStyle,
@@ -24,7 +24,7 @@ function FanLetterList({ list }) {
           {list.map(({ id, avatar, nickname, content }) => {
             return (
               <ListliStyle key={id} onClick={() => handleOnClick(id)}>
-                <ListImgStyle src={avatar} alt={nickname}></ListImgStyle>
+                <ListAvatarStyle src={avatar} alt={nickname}></ListAvatarStyle>
                 <ListWrapperStyle>
                   <ListNameStyle>{nickname}</ListNameStyle>
                   <ListContentStyle>{content}</ListContentStyle>

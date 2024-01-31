@@ -6,6 +6,7 @@ import {
   ArticleContentStyle,
   ArticleHeaderStyle,
   ArticleStyle,
+  AvatarStyle,
   ButtonStyle,
 } from "./Styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,6 +38,7 @@ function FanLetterDetail() {
     <section>
       <ArticleStyle>
         <ArticleHeaderStyle>
+          <AvatarStyle src={article.avatar} alt={article.nickname} />
           <span>{article.nickname}</span>
           <time>
             {new Date(article.createdAt).toLocaleDateString("ko-kr", {
