@@ -1,8 +1,8 @@
 import { fanLetters } from "static/data";
 
-const ADD_FANLETTER = "fanletters/ADD_FANLETTER";
-const DELETE_FANLETTER = "fanletters/DELETE_FANLETTER";
-const UPDATE_FANLETTER = "fanletters/UPDATE_FANLETTER";
+const ADD_FANLETTER = "fanletter/ADD_FANLETTER";
+const DELETE_FANLETTER = "fanletter/DELETE_FANLETTER";
+const UPDATE_FANLETTER = "fanletter/UPDATE_FANLETTER";
 
 const initialState = fanLetters;
 

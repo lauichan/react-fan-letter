@@ -44,6 +44,8 @@ function FanLetterForm({ article, changeEditMode }) {
       writedTo: sendto.value,
     };
 
+    if (!window.confirm(`팬레터 ${article ? "수정" : "작성"} 확인`)) return;
+
     article ? dispatch(updateFanLetter(formData)) : dispatch(addFanLetter(formData));
     dispatch(selectMember(formData.writedTo));
     e.target.reset();
