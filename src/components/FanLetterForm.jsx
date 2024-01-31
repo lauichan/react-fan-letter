@@ -43,7 +43,7 @@ function FanLetterForm({ article, changeEditMode }) {
       content: content.value,
       writedTo: sendto.value,
     };
-    console.log(formData);
+
     article ? dispatch(updateFanLetter(formData)) : dispatch(addFanLetter(formData));
     dispatch(selectMember(formData.writedTo));
     e.target.reset();

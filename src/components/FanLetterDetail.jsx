@@ -8,10 +8,12 @@ import {
   ArticleStyle,
   ButtonStyle,
 } from "./Styles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFanLetter } from "store/modules/fanletter";
 
 function FanLetterDetail() {
   const comments = useSelector((state) => state.fanletter);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
   const [editMode, setEditMode] = useState(false);
@@ -24,7 +26,7 @@ function FanLetterDetail() {
 
   const handleDeleteBtn = (id) => {
     if (window.confirm("삭제 확인")) {
-      //deleteFanLetter(id);
+      dispatch(deleteFanLetter(id));
       navigate("/");
     }
   };

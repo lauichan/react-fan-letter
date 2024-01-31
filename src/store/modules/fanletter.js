@@ -32,11 +32,11 @@ const fanletter = (state = initialState, action) => {
     case ADD_FANLETTER:
       return [...state, action.payload];
     case DELETE_FANLETTER:
-      return state;
+      return state.filter((letter) => letter.id !== action.payload);
     case UPDATE_FANLETTER:
-      return state.map((comment) => (comment.id === action.payload.id ? action.payload : comment));
+      return state.map((letter) => (letter.id === action.payload.id ? action.payload : letter));
     default:
-      return state.filter((comment) => comment.id !== action.payload);
+      return state;
   }
 };
 
