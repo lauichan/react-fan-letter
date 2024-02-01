@@ -37,10 +37,7 @@ function Home() {
   return (
     <>
       <MemberCard />
-      <FanLetterForm
-        data={{ nickname: "", content: "", writedTo: "" }}
-        handleOnSubmit={handleOnSubmit}
-      />
+      <FanLetterForm handleOnSubmit={handleOnSubmit} />
       <FanLetterList list={commentList} />
     </>
   );

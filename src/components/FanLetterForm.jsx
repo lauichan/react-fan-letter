@@ -8,7 +8,12 @@ import {
   FormTextAreaStyle,
 } from "./Styles";
 
-function FanLetterForm({ data, editMode, changeEditMode, handleOnSubmit }) {
+function FanLetterForm({
+  data = { nickname: "", content: "", writedTo: "" },
+  handleOnSubmit,
+  editMode,
+  changeEditMode,
+}) {
   return (
     <section>
       <FormStyle onSubmit={handleOnSubmit}>

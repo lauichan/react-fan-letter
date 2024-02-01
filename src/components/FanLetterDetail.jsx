@@ -1,6 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import FanLetterForm from "./FanLetterForm";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFanLetter, updateFanLetter } from "store/modules/fanletter";
+import { selectMember } from "store/modules/member";
 import {
   ArticleBottomStyle,
   ArticleContentStyle,
@@ -9,9 +12,6 @@ import {
   AvatarStyle,
   ButtonStyle,
 } from "./Styles";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteFanLetter, updateFanLetter } from "store/modules/fanletter";
-import { selectMember } from "store/modules/member";
 
 // 0000년 00월 00일 월요일
 function timeString(date) {
@@ -47,13 +47,12 @@ function FanLetterDetail() {
     e.preventDefault();
     const { name, content, sendto } = e.target;
 
-    const isChanged =
-      article &&
+    const isUnchanged =
       name.value === article.nickname &&
       content.value === article.content &&
       sendto.value === article.writedTo;
 
-    if (isChanged) {
+    if (isUnchanged) {
       alert("수정된 내용이 없습니다.");
       return;
     }
@@ -78,9 +77,9 @@ function FanLetterDetail() {
     return (
       <FanLetterForm
         data={article}
+        handleOnSubmit={handleOnSubmit}
         editMode={editMode}
         changeEditMode={changeEditMode}
-        handleOnSubmit={handleOnSubmit}
       />
     );
 
