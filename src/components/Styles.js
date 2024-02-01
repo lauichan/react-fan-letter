@@ -49,7 +49,6 @@ export const FormStyle = styled.form`
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  background-color: ${({ $backColor }) => $backColor};
 `;
 
 export const FormInputStyle = styled.input`
