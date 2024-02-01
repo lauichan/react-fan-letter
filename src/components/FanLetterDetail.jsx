@@ -59,7 +59,7 @@ function FanLetterDetail() {
 
     const formData = {
       id: article.id,
-      createdAt: new Date().toISOString(),
+      createdAt: article.createdAt,
       avatar: article.avatar,
       nickname: name.value,
       content: content.value,
