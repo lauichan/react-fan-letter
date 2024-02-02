@@ -4,7 +4,7 @@ const ADD_FANLETTER = "fanletter/ADD_FANLETTER";
 const DELETE_FANLETTER = "fanletter/DELETE_FANLETTER";
 const UPDATE_FANLETTER = "fanletter/UPDATE_FANLETTER";
 
-const initialState = fanLetters;
+const initialState = JSON.parse(localStorage.getItem("fanletters")) || fanLetters;
 
 export const addFanLetter = (payload) => {
   return { type: ADD_FANLETTER, payload };
@@ -21,11 +21,21 @@ export const deleteFanLetter = (payload) => {
 const fanletter = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FANLETTER:
+      localStorage.setItem("fanletters", JSON.stringify([...state, { ...action.payload }]));
       return [...state, action.payload];
+
     case DELETE_FANLETTER:
-      return state.filter((letter) => letter.id !== action.payload);
+      const deleted = state.filter((letter) => letter.id !== action.payload);
+      localStorage.setItem("fanletters", JSON.stringify(deleted));
+      return deleted;
+
     case UPDATE_FANLETTER:
-      return state.map((letter) => (letter.id === action.payload.id ? action.payload : letter));
+      const updated = state.map((letter) =>
+        letter.id === action.payload.id ? action.payload : letter
+      );
+      localStorage.setItem("fanletters", JSON.stringify(updated));
+      return updated;
+
     default:
       return state;
   }
