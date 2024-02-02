@@ -3,7 +3,7 @@ import FanLetterForm from "components/FanLetterForm";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteFanLetter, updateFanLetter } from "store/modules/fanletter";
+import { updateFanLetter } from "store/modules/fanletter";
 import { selectMember } from "store/modules/member";
 
 function Detail() {
@@ -17,13 +17,6 @@ function Detail() {
 
   const changeEditMode = (bool) => {
     setEditMode(bool);
-  };
-
-  const handleDeleteBtn = (id) => {
-    if (window.confirm("삭제 확인")) {
-      dispatch(deleteFanLetter(id));
-      navigate("/");
-    }
   };
 
   const handleOnSubmit = (e) => {
@@ -68,11 +61,7 @@ function Detail() {
 
   return (
     <>
-      <FanLetterDetail
-        article={article}
-        changeEditMode={changeEditMode}
-        handleDeleteBtn={handleDeleteBtn}
-      />
+      <FanLetterDetail article={article} changeEditMode={changeEditMode} />
     </>
   );
 }

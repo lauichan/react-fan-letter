@@ -1,3 +1,6 @@
+import { deleteFanLetter } from "store/modules/fanletter";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   ArticleBottomStyle,
   ArticleContentStyle,
@@ -17,7 +20,17 @@ function timeString(date) {
   });
 }
 
-function FanLetterDetail({ article, handleDeleteBtn, changeEditMode }) {
+function FanLetterDetail({ article, changeEditMode }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleDeleteBtn = (id) => {
+    if (window.confirm("삭제 확인")) {
+      dispatch(deleteFanLetter(id));
+      navigate("/");
+    }
+  };
+
   return (
     <section>
       <ArticleStyle>
