@@ -1,6 +1,6 @@
-import { ContainerStyle, HeaderStyle, MainStyle, FooterStyle } from "components/Styles";
 import React from "react";
 import { Link } from "react-router-dom";
+import { ContainerStyle, HeaderStyle, MainStyle, FooterStyle } from "components/Styles";
 
 const Header = () => {
   return (

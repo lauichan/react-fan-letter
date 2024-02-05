@@ -12,7 +12,7 @@ function Detail() {
 
   const { id } = useParams();
   const comments = useSelector((state) => state.fanletter);
-  const article = comments.find((letter) => letter.id === id) || {};
+  const article = comments.find((letter) => letter.id === id) ?? {};
   const [editMode, setEditMode] = useState(false);
 
   const changeEditMode = () => {
