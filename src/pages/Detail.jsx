@@ -7,16 +7,16 @@ import { updateFanLetter } from "store/modules/fanletter";
 import { selectMember } from "store/modules/member";
 
 function Detail() {
-  const { id } = useParams();
-  const comments = useSelector((state) => state.fanletter);
-  const article = comments.find((letter) => letter.id === id) ?? {};
-  const [editMode, setEditMode] = useState(false);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const changeEditMode = (bool) => {
-    setEditMode(bool);
+  const { id } = useParams();
+  const comments = useSelector((state) => state.fanletter);
+  const article = comments.find((letter) => letter.id === id) || {};
+  const [editMode, setEditMode] = useState(false);
+
+  const changeEditMode = () => {
+    setEditMode(!editMode);
   };
 
   const handleOnSubmit = (e) => {
@@ -59,11 +59,7 @@ function Detail() {
       />
     );
 
-  return (
-    <>
-      <FanLetterDetail article={article} changeEditMode={changeEditMode} />
-    </>
-  );
+  return <FanLetterDetail article={article} changeEditMode={changeEditMode} />;
 }
 
 export default Detail;

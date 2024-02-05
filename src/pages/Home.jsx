@@ -7,12 +7,12 @@ import { selectMember } from "store/modules/member";
 import { v4 as uuidv4 } from "uuid";
 
 function Home() {
+  const dispatch = useDispatch();
+
   const comments = useSelector((state) => state.fanletter);
   const member = useSelector((state) => state.member);
 
   const commentList = comments.filter((letter) => letter.writedTo === member);
-
-  const dispatch = useDispatch();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
