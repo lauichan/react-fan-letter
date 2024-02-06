@@ -28,4 +28,4 @@ function MemberCard() {
   );
 }
 
-export default React.memo(MemberCard);
+export default MemberCard;
