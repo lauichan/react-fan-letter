@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "pages/Home";
 import Detail from "pages/Detail";
@@ -10,6 +10,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="detail/:id" element={<Detail />} />
+          <Route path="*" element={<Navigate raplce to="/" />} />
         </Routes>
       </Layout>
     </BrowserRouter>
