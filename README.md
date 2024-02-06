@@ -1,5 +1,17 @@
 # 팬레터 개인 프로젝트
 
+react, react-router-dom, redux, styled-components, uuid 패키지
+
+## 페이지별 컴포넌트 기능
+
+- home
+- - MemberCard 멤버별 선택할 수 있는 버튼
+- - FanLetterForm 팬 레터 입력하는 폼
+- - FanLetterList 멤버별 팬레터를 출력하는 리스트
+- detail:id
+- - FanLetterDetail id에 해당하는 팬 레터 출력
+- - FanLetterForm 팬 레터 수정할 때 사용.
+
 ## 진행 순서
 
 - [x] 1. 프로젝트 셋업
@@ -24,5 +36,5 @@
 - [ ] 홈 화면의 아바타 이미지와 버튼과 동일한 공용 컴포넌트 적용
 - [ ] confirm, alert 대신 직접 구현한 모달 적용하기
 - [ ] 만능 버튼 구현하기
-- [ ] 새로고침 UI 유지 로컬스토리지사용
+- [x] 새로고침 UI 유지 로컬스토리지사용 (localstorage 브랜치에만)
 - [ ] 검색 기능 구현 query string ?search
